@@ -1,0 +1,13 @@
+langchain
+langchain-core
+langchain-community
+transformers
+sentence-transformers
+faiss-cpu
+torch
+pandas
+openpyxl
+beautifulsoup4
+langdetect
+gradio
+accelerate
