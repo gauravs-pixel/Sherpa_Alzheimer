@@ -1,4 +1,154 @@
+The Sherpa Alzheimer application is deployed live on Hugging Face Spaces, allowing anyone to try the assistant directly in a web browser—no installation required.
 
+🌍 Live Application URL
+
+👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
+
+What you can do in the live app
+
+Ask caregiver-related questions about Alzheimer’s disease
+
+Use multiple languages (English, Spanish, Catalan, French, German, Italian, Portuguese)
+
+See source-backed answers generated using Retrieval-Augmented Generation (RAG)
+
+Test real caregiver scenarios such as:
+
+“How do I respond when my parent wants to go home?”
+
+“Què és l’Alzheimer?”
+
+“What are early signs of Alzheimer’s disease?”
+
+⚠️ Note: The app is for educational and caregiver support purposes only and is not a medical diagnosis tool.
+
+📁 Project Structure & File Guide
+
+Below is an explanation of each important file and directory in this repository and what role it plays in the system.
+
+.
+├── app.py
+├── server.py
+├── whatsapp_server.py
+├── alzheimers_db/
+│   ├── index.faiss
+│   └── index.pkl
+├── requirements.txt
+└── README.md
+
+📄 app.py – Core Application Logic
+
+This is the heart of the project.
+
+What it does:
+
+Loads the FAISS vector database
+
+Loads the TinyLlama language model
+
+Detects the user’s language automatically
+
+Retrieves relevant documents using RAG
+
+Generates answers with citations
+
+Powers the Gradio web interface
+
+Who should look here:
+
+AI/ML engineers
+
+Developers modifying prompts, models, or retrieval logic
+
+📁 alzheimers_db/ – Knowledge Base (FAISS Vector Store)
+
+This directory contains the indexed Alzheimer’s caregiving knowledge.
+
+Files inside:
+
+index.faiss → Vector index for similarity search
+
+index.pkl → Metadata (sources, document info)
+
+Important notes:
+
+This is what enables source-based answers
+
+To update knowledge, you must rebuild the FAISS index
+
+The app will not work correctly without this folder
+
+📄 requirements.txt
+
+Lists all required Python dependencies such as:
+
+torch
+
+transformers
+
+gradio
+
+langchain
+
+faiss-cpu
+
+langdetect
+
+twilio (for WhatsApp)
+
+Used by:
+
+Hugging Face Spaces
+
+Local installation
+
+Cloud deployments
+
+🧭 How the Live Hugging Face App Works (Business View)
+
+A caregiver enters a question in the web interface
+
+The system detects the language automatically
+
+Relevant knowledge is retrieved from the Alzheimer’s database
+
+The AI generates a clear, empathetic answer
+
+Sources are cited for transparency and trust
+
+Business value:
+
+Reduces caregiver stress
+
+Improves access to reliable information
+
+Scales caregiver support without human staffing
+
+Works across languages and regions
+
+🌐 Public Access & Sharing
+
+The Hugging Face app is publicly accessible
+
+No login required for basic usage
+
+The same backend can also be:
+
+Embedded in websites
+
+Connected to WhatsApp
+
+Extended to mobile apps or APIs
+
+🛡️ Ethical & Safety Considerations
+
+The assistant does not provide medical diagnoses
+
+Responses are grounded in curated caregiving sources
+
+Users are encouraged to consult healthcare professionals
+
+Designed for support, education, and guidance only
 
 🧭 Sherpa Alzheimer – Caregiver Handbook
 
