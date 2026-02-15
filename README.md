@@ -16,7 +16,7 @@ The vector store script is responsible for:
 - Storing embeddings in a FAISS vector database
 - Preserving source metadata for answer citation
 
-** 📥 Input Data**
+📥 **Input Data**
 
 **Dataset-sherpa-alzheimer-links.xlsx**
 
