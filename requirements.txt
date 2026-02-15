@@ -1,13 +1,10 @@
+huggingface-hub==0.35.0
+transformers==4.45.2
+sentence-transformers==3.1.1
 langchain
-langchain-core
 langchain-community
-transformers
-sentence-transformers
 faiss-cpu
 torch
-pandas
-openpyxl
-beautifulsoup4
-langdetect
 gradio
+langdetect
 accelerate
