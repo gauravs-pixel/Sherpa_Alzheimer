@@ -4,6 +4,41 @@ The Sherpa Alzheimer application is deployed live on Hugging Face Spaces, allowi
 
 👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
 
+**🧠 Building the Alzheimer Knowledge Base (Vector Store)**
+
+**📄 Purpose of the Vector Store Script**
+
+The vector store script is responsible for:
+
+- Collecting Alzheimer and caregiving information from trusted web sources
+- Cleaning and splitting long documents into manageable text chunks
+- Converting text into semantic embeddings
+- Storing embeddings in a FAISS vector database
+- Preserving source metadata for answer citation
+
+** 📥 Input Data**
+
+**Dataset-sherpa-alzheimer-links.xlsx**
+
+- curated URLs related to Alzheimer’s disease and caregiving
+- Each link is treated as a trusted knowledge source
+- The column “Enllaç” is used to extract web URLs
+
+This enables the assistant to provide accurate, explainable, and source-backed answers instead of generating unsupported responses.
+
+**📁 Output**
+
+After running the script, the following directory is created:
+
+alzheimers_db/
+├── index.faiss   # Vector index for semantic search
+└── index.pkl     # Document metadata (sources, text mapping)
+
+This project uses Retrieval-Augmented Generation (RAG) to ensure that all responses are grounded in trusted, real-world caregiving sources.
+Before the assistant can answer questions, a vector database must be created from curated Alzheimer-related content.
+
+This process is handled by the vector store builder script.
+
 **What you can do in the live app**
 
 - Ask caregiver-related questions about Alzheimer’s disease
