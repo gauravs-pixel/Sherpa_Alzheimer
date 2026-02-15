@@ -7,11 +7,8 @@ The Sherpa Alzheimer application is deployed live on Hugging Face Spaces, allowi
 **What you can do in the live app**
 
 - Ask caregiver-related questions about Alzheimer’s disease
-
 - Use multiple languages (English, Spanish, Catalan, French, German, Italian, Portuguese)
-
 - See source-backed answers generated using Retrieval-Augmented Generation (RAG)
-
 - Test real caregiver scenarios such as:
   - “How do I respond when my parent wants to go home?”
   - “Què és l’Alzheimer?”
@@ -56,17 +53,12 @@ This is the heart of the project.
 This directory contains the indexed Alzheimer’s caregiving knowledge.
 
 **Files inside:**
-
 - index.faiss → Vector index for similarity search
-
 - index.pkl → Metadata (sources, document info)
 
 **Important notes:**
-
 - This is what enables source-based answers
-
 - To update knowledge, you must rebuild the FAISS index
-
 - The app will not work correctly without this folder
 
 **📄 requirements.txt**
@@ -74,71 +66,47 @@ This directory contains the indexed Alzheimer’s caregiving knowledge.
 Lists all required Python dependencies such as:
 
 - torch
-
 - transformers
-
 - gradio
-
 - langchain
-
 - faiss-cpu
-
 - langdetect
-
 - twilio (for WhatsApp)
 
 **Used by:**
-
 - Hugging Face Spaces
-
 - Local installation
-
 - Cloud deployments
 
 **🧭 How the Live Hugging Face App Works (Business View)**
 
 1. A caregiver enters a question in the web interface
-
 2. The system detects the language automatically
-
 3. Relevant knowledge is retrieved from the Alzheimer’s database
-
 4. The AI generates a clear, empathetic answer
-
 5. Sources are cited for transparency and trust
 
 **Business value:**
 
 - Reduces caregiver stress
-
 - Improves access to reliable information
-
 - Scales caregiver support without human staffing
-
 - Works across languages and regions
 
 **🌐 Public Access & Sharing**
 
 - The Hugging Face app is publicly accessible
-
 - No login required for basic usage
-
 - The same backend can also be:
-
 - Embedded in websites
-
 - Connected to WhatsApp
-
 - Extended to mobile apps or APIs
 
 **🛡️ Ethical & Safety Considerations**
 
 - The assistant does not provide medical diagnoses
-
 - Responses are grounded in curated caregiving sources
-
 - Users are encouraged to consult healthcare professionals
-
 - Designed for support, education, and guidance only
 
 🧭 Sherpa Alzheimer – Caregiver Handbook
