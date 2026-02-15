@@ -35,6 +35,34 @@ Before the assistant can answer questions, a vector database must be created fro
 
 This process is handled by the vector store builder script.
 
+**💬 WhatsApp Integration (User Access)**
+
+The Sherpa Alzheimer Assistant is also accessible via WhatsApp using the Twilio WhatsApp Sandbox.
+
+
+
+<img width="2160" height="974" alt="image" src="https://github.com/user-attachments/assets/c3da1d37-cfc6-4461-bf01-97125753d375" />
+
+**How to Join the WhatsApp Assistant**
+
+1. Open WhatsApp on your mobile device
+2. Scan the QR code shown above
+OR
+3. Send a WhatsApp message to the provided sandbox number
+4. Send the join code exactly as displayed (for example:join want-troops)
+
+Once joined, you can start chatting with the assistant directly on WhatsApp by sending your questions as normal messages.
+
+**What This Enables**
+
+- Caregivers and family members can access the assistant without installing any app
+- Supports quick, conversational questions on mobile
+- Ideal for non-technical users and older caregivers
+- Same knowledge base and safety logic as the web application
+
+Note: This setup uses the Twilio Sandbox, intended for development and testing.For production use, a dedicated WhatsApp Business number and approval are required.
+
+
 🌍 **Live Application URL**
 
 👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
