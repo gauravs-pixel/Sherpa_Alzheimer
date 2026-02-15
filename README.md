@@ -1,9 +1,5 @@
 The Sherpa Alzheimer application is deployed live on Hugging Face Spaces, allowing anyone to try the assistant directly in a web browser—no installation required.
 
-🌍 **Live Application URL**
-
-👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
-
 **🧠 Building the Alzheimer Knowledge Base (Vector Store)**
 
 **📄 Purpose of the Vector Store Script**
@@ -38,6 +34,10 @@ This project uses Retrieval-Augmented Generation (RAG) to ensure that all respon
 Before the assistant can answer questions, a vector database must be created from curated Alzheimer-related content.
 
 This process is handled by the vector store builder script.
+
+🌍 **Live Application URL**
+
+👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
 
 **What you can do in the live app**
 
