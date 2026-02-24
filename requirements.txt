@@ -1,10 +1,42 @@
+# -------------------------------
+# Data handling
+# -------------------------------
+pandas
+openpyxl
+beautifulsoup4
+
+# -------------------------------
+# Web frameworks / UI
+# -------------------------------
+flask
+gradio
+pyngrok
+
+# -------------------------------
+# NLP / Transformers
+# -------------------------------
+langdetect
+sentencepiece
+torch
+accelerate
 huggingface-hub==0.35.0
 transformers==4.45.2
 sentence-transformers==3.1.1
+
+# -------------------------------
+# LangChain ecosystem
+# -------------------------------
 langchain
+langchain-core
 langchain-community
+langchain-openai
+
+# -------------------------------
+# Vector database
+# -------------------------------
 faiss-cpu
-torch
-gradio
-langdetect
-accelerate
+
+# -------------------------------
+# Messaging / WhatsApp
+# -------------------------------
+twilio
