@@ -7,10 +7,12 @@ It delivers **reliable, empathetic, and source-backed answers using Retrieval-Au
 
 The application is live and publicly accessible, with both web and WhatsApp interfaces—no installation required.
 
+
 🌍 **Live Application**
 
 👉 Web App (Hugging Face Spaces)
 https://huggingface.co/spaces/idofgaurav/Alzheimer
+
 
 **What You Can Do**
 
@@ -32,6 +34,7 @@ Test real caregiver scenarios such as:
 
 ⚠️** Disclaimer:**
 This application is for educational and caregiver support purposes only and does not provide medical diagnoses.
+
 
 **Why Sherpa Alzheimer (Business View)**
 
@@ -55,6 +58,7 @@ Empathetic and caregiver-friendly tone
 
 Ethical and safety-first design
 
+
 **🧠 How It Works (High Level)**
 
 A caregiver asks a question (web or WhatsApp)
@@ -68,6 +72,8 @@ The AI generates a clear, empathetic response
 Sources are cited for transparency and trust
 
 **This architecture is powered by Retrieval-Augmented Generation (RAG).**
+
+
 
 **📚 Building the Alzheimer Knowledge Base (Vector Store)**
 
@@ -107,6 +113,8 @@ alzheimers_db/
 
 ⚠️ The application **will not function correctly without this folder.**
 
+
+
 **💬 WhatsApp Access (Twilio Sandbox)**
 
 Sherpa Alzheimer is also accessible via WhatsApp, using the Twilio WhatsApp Sandbox.
@@ -123,6 +131,9 @@ Sherpa Alzheimer is also accessible via WhatsApp, using the Twilio WhatsApp Sand
 
   Start chatting with the assistant like a normal WhatsApp conversation
 
+  <img width="1440" height="610" alt="image" src="https://github.com/user-attachments/assets/07fd63e2-6058-4b8f-a9c9-df5214078ef7" />
+
+
 **What This Enables**
 
   No app installation required
@@ -136,6 +147,8 @@ Sherpa Alzheimer is also accessible via WhatsApp, using the Twilio WhatsApp Sand
 **Note**:
 This uses the Twilio Sandbox for development and testing.
 Production deployment requires a verified WhatsApp Business number.
+
+
 
 **📄 File Guide**
 app.py – **Core Application Logic**
@@ -161,6 +174,8 @@ The heart of the system.
   AI / ML engineers
 
   Developers extending prompts, models, or retrieval logic
+
+  
 
 **alzheimers_db/ – Knowledge Base (FAISS Vector Store)**
 
@@ -205,6 +220,8 @@ Lists all required Python dependencies, including:
   Local development
 
   Cloud deployments
+
+  
 
 **⚙️ Installation & Local Setup**
 **System Requirements**
