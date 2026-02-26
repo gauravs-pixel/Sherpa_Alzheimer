@@ -1,279 +1,242 @@
-The Sherpa Alzheimer application is deployed live on Hugging Face Spaces, allowing anyone to try the assistant directly in a web browser—no installation required.
+🧠 **Sherpa Alzheimer**
 
-**🧠 Building the Alzheimer Knowledge Base (Vector Store)**
+**An AI-Powered Caregiver Assistant for Alzheimer’s Disease**
 
-**📄 Purpose of the Vector Store Script**
+Sherpa Alzheimer is a multilingual, AI-powered assistant designed to support caregivers and family members of people living with Alzheimer’s disease.
+It delivers **reliable, empathetic, and source-backed answers using Retrieval-Augmented Generation (RAG)** and a curated Alzheimer’s knowledge base.
 
-The vector store script is responsible for:
+The application is live and publicly accessible, with both web and WhatsApp interfaces—no installation required.
 
-- Collecting Alzheimer and caregiving information from trusted web sources
-- Cleaning and splitting long documents into manageable text chunks
-- Converting text into semantic embeddings
-- Storing embeddings in a FAISS vector database
-- Preserving source metadata for answer citation
+🌍 **Live Application**
 
-📥 **Input Data**
+👉 Web App (Hugging Face Spaces)
+https://huggingface.co/spaces/idofgaurav/Alzheimer
 
-**Dataset-sherpa-alzheimer-links.xlsx**
+**What You Can Do**
 
-- curated URLs related to Alzheimer’s disease and caregiving
-- Each link is treated as a trusted knowledge source
-- The column “Enllaç” is used to extract web URLs
+Ask caregiver-focused questions about Alzheimer’s disease
 
-This enables the assistant to provide accurate, explainable, and source-backed answers instead of generating unsupported responses.
+Get evidence-based answers with citations
 
-**📁 Output**
+Use multiple languages:
+
+  English, Spanish, Catalan, French, German, Italian, Portuguese
+
+Test real caregiver scenarios such as:
+
+  “How do I respond when my parent wants to go home?”
+
+  “Què és l’Alzheimer?”
+
+  “What are early signs of Alzheimer’s disease?”
+
+⚠️** Disclaimer:**
+This application is for educational and caregiver support purposes only and does not provide medical diagnoses.
+
+**Why Sherpa Alzheimer (Business View)**
+
+**Key Value Proposition**
+
+Reduces caregiver stress and cognitive load
+
+Provides fast, trustworthy, and explainable answers
+
+Scales caregiver support without human staffing
+
+Works across languages and regions
+
+Accessible to non-technical and older users
+
+**Core Principles**
+
+Source-grounded responses (no hallucinations)
+
+Empathetic and caregiver-friendly tone
+
+Ethical and safety-first design
+
+**🧠 How It Works (High Level)**
+
+A caregiver asks a question (web or WhatsApp)
+
+The system automatically detects the language
+
+Relevant documents are retrieved from the Alzheimer knowledge base
+
+The AI generates a clear, empathetic response
+
+Sources are cited for transparency and trust
+
+**This architecture is powered by Retrieval-Augmented Generation (RAG).**
+
+**📚 Building the Alzheimer Knowledge Base (Vector Store)**
+
+**Purpose**
+
+The knowledge base ensures that all answers are grounded in trusted caregiving sources, not generic language model output.
+
+**What the Vector Store Script Does**
+
+Collects Alzheimer and caregiving information from trusted web sources
+
+Cleans and splits long documents into manageable chunks
+
+Converts text into semantic embeddings
+
+Stores embeddings in a FAISS vector database
+
+Preserves source metadata for answer citation
+
+**Input Data**
+
+Dataset-sherpa-alzheimer-links.xlsx
+
+  Curated URLs related to Alzheimer’s disease and caregiving
+
+  Each link is treated as a trusted knowledge source
+
+  The column “Enllaç” is used to extract URLs
+
+**Output**
 
 After running the script, the following directory is created:
 
 alzheimers_db/
 ├── index.faiss   # Vector index for semantic search
-└── index.pkl     # Document metadata (sources, text mapping)
+└── index.pkl     # Document metadata and source mapping
 
-This project uses Retrieval-Augmented Generation (RAG) to ensure that all responses are grounded in trusted, real-world caregiving sources.
-Before the assistant can answer questions, a vector database must be created from curated Alzheimer-related content.
+⚠️ The application **will not function correctly without this folder.**
 
-This process is handled by the vector store builder script.
+**💬 WhatsApp Access (Twilio Sandbox)**
 
-**💬 WhatsApp Integration (User Access)**
+Sherpa Alzheimer is also accessible via WhatsApp, using the Twilio WhatsApp Sandbox.
 
-The Sherpa Alzheimer Assistant is also accessible via WhatsApp using the Twilio WhatsApp Sandbox.
+**How to Join**
 
+  Open WhatsApp on your mobile device
 
+  Scan the provided QR code OR
 
-<img width="2160" height="974" alt="image" src="https://github.com/user-attachments/assets/c3da1d37-cfc6-4461-bf01-97125753d375" />
+  Send a message to the sandbox number
 
-**How to Join the WhatsApp Assistant**
+  Send the join code exactly as shown (example: join want-troops)
 
-1. Open WhatsApp on your mobile device
-2. Scan the QR code shown above
-OR
-3. Send a WhatsApp message to the provided sandbox number
-4. Send the join code exactly as displayed (for example:join want-troops)
-
-Once joined, you can start chatting with the assistant directly on WhatsApp by sending your questions as normal messages.
+  Start chatting with the assistant like a normal WhatsApp conversation
 
 **What This Enables**
 
-- Caregivers and family members can access the assistant without installing any app
-- Supports quick, conversational questions on mobile
-- Ideal for non-technical users and older caregivers
-- Same knowledge base and safety logic as the web application
+  No app installation required
 
-Note: This setup uses the Twilio Sandbox, intended for development and testing.For production use, a dedicated WhatsApp Business number and approval are required.
+  Ideal for mobile and older caregivers
 
+  Quick, conversational access
 
-🌍 **Live Application URL**
+  Same knowledge base and safety logic as the web app
 
-👉 https://huggingface.co/spaces/idofgaurav/Alzheimer
+**Note**:
+This uses the Twilio Sandbox for development and testing.
+Production deployment requires a verified WhatsApp Business number.
 
-**What you can do in the live app**
+**📄 File Guide**
+app.py – **Core Application Logic**
 
-- Ask caregiver-related questions about Alzheimer’s disease
-- Use multiple languages (English, Spanish, Catalan, French, German, Italian, Portuguese)
-- See source-backed answers generated using Retrieval-Augmented Generation (RAG)
-- Test real caregiver scenarios such as:
-  - “How do I respond when my parent wants to go home?”
-  - “Què és l’Alzheimer?”
-  - “What are early signs of Alzheimer’s disease?”
+The heart of the system.
 
-⚠️ Note: The app is for educational and caregiver support purposes only and is not a medical diagnosis tool.
+**Responsibilities**
 
-**📁 Project Structure & File Guide**
+  Loads the FAISS vector database
 
-Below is an explanation of each important file and directory in this repository and what role it plays in the system.
+  Loads the TinyLlama language model
 
-.
-├── app.py
-├── server.py
-├── whatsapp_server.py
-├── alzheimers_db/
-│   ├── index.faiss
-│   └── index.pkl
-├── requirements.txt
-└── README.md
+  Automatically detects user language
 
-**📄 app.py – Core Application Logic**
+  Retrieves relevant documents (RAG)
 
-This is the heart of the project.
+  Generates answers with citations
 
-**What it does:**
+  Powers the Gradio web interface
 
-- Loads the FAISS vector database
-- Loads the TinyLlama language model
-- Detects the user’s language automatically
-- Retrieves relevant documents using RAG
-- Generates answers with citations
-- Powers the Gradio web interface
+**Audience**
 
-**Who should look here:**
+  AI / ML engineers
 
-- AI/ML engineers
-- Developers modifying prompts, models, or retrieval logic
+  Developers extending prompts, models, or retrieval logic
 
-**📁 alzheimers_db/ – Knowledge Base (FAISS Vector Store)**
+**alzheimers_db/ – Knowledge Base (FAISS Vector Store)**
 
-This directory contains the indexed Alzheimer’s caregiving knowledge.
+Contains the indexed Alzheimer caregiving knowledge.
 
-**Files inside:**
-- index.faiss → Vector index for similarity search
-- index.pkl → Metadata (sources, document info)
+**Files**
 
-**Important notes:**
-- This is what enables source-based answers
-- To update knowledge, you must rebuild the FAISS index
-- The app will not work correctly without this folder
+  index.faiss → Vector similarity index
 
-**📄 requirements.txt**
+  index.pkl → Metadata (sources, documents)
 
-Lists all required Python dependencies such as:
+**Important Notes**
 
-- torch
-- transformers
-- gradio
-- langchain
-- faiss-cpu
-- langdetect
-- twilio (for WhatsApp)
+  Enables source-backed answers
+
+  Must be rebuilt to update knowledge
+
+  Required for correct app behavior
+
+**requirements.txt**
+
+Lists all required Python dependencies, including:
+
+  torch
+
+  transformers
+
+  gradio
+
+  langchain
+
+  faiss-cpu
+
+  langdetect
+
+  twilio (WhatsApp integration)
 
 **Used by:**
-- Hugging Face Spaces
-- Local installation
-- Cloud deployments
 
-**🧭 How the Live Hugging Face App Works (Business View)**
+  Hugging Face Spaces
 
-1. A caregiver enters a question in the web interface
-2. The system detects the language automatically
-3. Relevant knowledge is retrieved from the Alzheimer’s database
-4. The AI generates a clear, empathetic answer
-5. Sources are cited for transparency and trust
+  Local development
 
-**Business value:**
+  Cloud deployments
 
-- Reduces caregiver stress
-- Improves access to reliable information
-- Scales caregiver support without human staffing
-- Works across languages and regions
+**⚙️ Installation & Local Setup**
+**System Requirements**
 
-**🌐 Public Access & Sharing**
+  Python 3.10+
 
-- The Hugging Face app is publicly accessible
-- No login required for basic usage
-- The same backend can also be:
-- Embedded in websites
-- Connected to WhatsApp
-- Extended to mobile apps or APIs
+  Optional GPU recommended (TinyLlama 1.1B)
 
-**🛡️ Ethical & Safety Considerations**
-
-- The assistant does not provide medical diagnoses
-- Responses are grounded in curated caregiving sources
-- Users are encouraged to consult healthcare professionals
-- Designed for support, education, and guidance only
-
-🧭 Sherpa Alzheimer – Caregiver Handbook
-
-## 1. Introduction
-Sherpa Alzheimer is an AI-powered caregiver assistant designed specifically to help caregivers of Alzheimer’s patients. Its primary purpose is to provide quick, reliable, and empathetic guidance for caregiving decisions by combining retrieval-augmented generation (RAG) with a curated Alzheimer’s knowledge base.
-
-Business and Functional Benefits:
-- Reduces cognitive load by providing fast, evidence-backed answers.
-- Delivers responses in a calm, empathetic, and concise style, improving caregiver confidence.
-- Supports multiple languages: English, Spanish, Catalan, French, German, Italian, Portuguese.
-- Allows integration into internal caregiver portals or public web interfaces.
-- Ensures all answers include source citations for verification.
-
-## 2. System Requirements
-- Python 3.10 or higher.
-- Optional GPU recommended for faster LLM inference (TinyLlama 1.1B).
-- Required Python packages:
+**Install Dependencies**
 
 pip install torch transformers gradio langdetect faiss-cpu langchain langchain-community
 
-Optional for updated Hugging Face modules:
+**🛡️ Ethical & Safety Considerations**
 
-pip install -U langchain-huggingface
+No medical diagnoses are provided
 
-## 3. Project Structure
-Sherpa-Alzheimer/
+All responses are grounded in curated caregiving sources
 
-app.py                 # Main application
-alzheimers_db/         # FAISS vector store (knowledge base)
-README.md              # Documentation
-requirements.txt       # Optional Python dependencies
+Encourages consultation with healthcare professionals
 
-## 4. Installation & Setup
-1. Create a project folder:
-mkdir sherpa-alzheimer
-cd sherpa-alzheimer
+Designed for education, guidance, and emotional support
 
-2. Prepare the Alzheimer’s knowledge base:
-- Place your documents in the alzheimers_db/ folder as a FAISS vector store.
-- If not yet created, generate embeddings using Sentence Transformers (all-MiniLM-L6-v2).
+**🚀 Future Enhancements**
 
-3. Install dependencies (see system requirements above).
+Persistent multi-turn chat memory
 
-## 5. Launching the App Locally
-1. Run the app:
-python app.py
+Mobile-optimized UI
 
-2. Terminal output will look like:
-Running on local URL: http://127.0.0.1:7860
+Access control for caregiver organizations
 
-3. Open this URL in a browser.
-4. Example questions to ask:
-- "What are early biomarkers of Alzheimer's disease?"
-- "How do I respond when my parent insists they need to go home?"
-- "Què és l'Alzheimer?"
+Analytics dashboard (common questions, usage trends)
 
-## 6. Public Access
-1. To allow others to access the app, edit app.py to launch Gradio with a public link:
-demo.launch(share=True)
+Production WhatsApp deployment
 
-2. After running, the terminal will display a temporary public URL:
-Running on public URL: https://abcd1234.gradio.app
-
-3. Anyone with this link can access the app while your Python process is running.
-
-## 7. Using the Chat Interface
-- Enter your question in the chat box.
-- Select the language (or leave "Auto" to detect automatically).
-- Press Enter to submit.
-- The assistant will respond with:
-  - Answer based strictly on the retrieved documents.
-  - Sources cited in a list format for verification.
-
-Example Output:
-Answer: Early signs include memory loss, confusion, and disorientation.
-
------------------------------------------------------------------------------------
-Sources:
-- source1.txt
-- source2.pdf
-
-## 8. Safety & Best Practices
-- Always verify critical medical advice with a healthcare professional.
-- Use clear, short questions for the best response quality.
-- Regularly update the FAISS knowledge base to maintain accuracy.
-- Choose the appropriate language for clarity; Auto-detect works well for multi-lingual users.
-
-## 9. Optional Debugging
-- For advanced monitoring, add debug prints inside the answer_question function:
-
-print(f"[DEBUG] Question: {question}")
-print(f"[DEBUG] Retrieved docs: {len(docs)}")
-print(f"[DEBUG] Prompt:\n{prompt}")
-print(f"[DEBUG] Answer: {answer}")
-
-- Check the terminal for live logs to verify what the assistant is doing for each question.
-
-## 10. Future Enhancements
-- Persistent chat memory for multi-turn conversations.
-- Mobile-friendly UI for tablets and smartphones.
-- Access control for internal caregiver portals.
-- Analytics dashboard for tracking common questions and usage.
-- Deployment on cloud platforms such as Hugging Face Spaces, AWS, or Render for continuous availability.
-
-
-
+Cloud deployment (AWS, Render, Hugging Face)
